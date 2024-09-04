@@ -1,0 +1,20 @@
+services:
+  blog-oauth2-db:
+    image: "postgres:16.4-bullseye"
+    container_name: "blog-oauth2-db"
+    ports:
+      - "2345:5432"
+    volumes:
+      - blog-oauth2-db-vol:/var/lib/postgresql/data
+    networks:
+      - blog-oauth2-net
+    environment:
+      - POSTGRES_PASSWORD=sarandy
+      - POSTGRES_USER=sarandy
+      - POSTGRES_DB=blog_oauth2_db
+
+volumes:
+  blog-oauth2-db-vol:
+
+networks:
+  blog-oauth2-net:
